@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="./flex.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>web</title>
+  </head>
+  <body class="prelaunch f-col a-c j-c">
+    <h2>LAUNCHING IN A FEW HOURS</h2>
+    <p>Join the email list and take 5% off at launch. Stories, tips, <br> & updates. No gimmicks. Just a clean head start.</p>
+    <form action="" class="f-row g6 newsletter-footer-form">
+        <input type="text" placeholder="Enter your email" class="newsletter-input">
+        <button class="button-main form-email">Sign Up</button>
+    </form>
+    <div id="countdown" class="f-col">
+        <p class="starting-in">Launching In</p>
+        <div><span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span></div>
+    </div>
+    <script>
+  const launchTime = new Date("2025-12-19T20:00:00Z").getTime();
+
+  const timer = setInterval(() => {
+    const now = new Date().getTime();
+    const diff = launchTime - now;
+
+    if (diff <= 0) {
+      clearInterval(timer);
+      document.getElementById("countdown").textContent = "LIVE";
+      return;
+    }
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+    document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+    document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+  }, 1000);
+</script>
+  </body>
+<html

@@ -1,0 +1,37 @@
+/* ===========================================
+    GENERAL
+=========================================== */
+
+.f-row {
+    align-items: center;
+    display: flex;
+}
+
+.f-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.a-f-s {
+    align-items: flex-start;
+}
+
+.j-c {
+    justify-content: center;
+}
+
+.j-s-b {
+    justify-content: space-between;
+}
+
+.j-f-e {
+    justify-content: flex-end;
+}
+
+.flex {
+    flex: 1;
+}
+
+.a-c {
+    align-items: center;
+}

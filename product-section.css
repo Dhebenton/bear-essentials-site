@@ -1,0 +1,109 @@
+:root {
+    --navigation-banner: 13px;
+
+    --container-product: 140px clamp(
+        6.5%,
+        calc((100% - 1100px) / 2),
+        calc(100% - 1100px)
+    );
+}
+
+.container.product {
+    padding: var(--container-product) !important;
+}
+
+/* ===========================================
+    NAVIGATION BANNER
+=========================================== */
+
+.navigation-banner {
+    background-color: #243F2A;
+    padding: var(--g12);
+}
+
+.navigation-banner p {
+    font-size: var(--navigation-banner);
+    font-family: 'Gantari';
+    color: #FCFCFC;
+    font-variation-settings: 'wght' 800;
+}
+
+/* ===========================================
+    PRODUCT PAGE
+=========================================== */
+
+
+:root {
+    --product-page-review: 12px;
+    --product-page-h2: 20px;
+    --product-page-p: 14px;
+
+    --product-page-accordation-heading: 13px;
+}
+
+.product-page-review-container p{
+    font-size: var(--product-page-review);
+    font-variation-settings: 'wght' 550;
+    transform: translateY(1px);
+    color: #555554;
+    line-height: 1;
+}
+
+.product-page-review-container svg{
+    height: 13px;
+    width: auto;
+}
+
+.product-page-image-wrap .selected-image{
+    width: 520px;
+    height: 490px;
+    background-image: url(./assets/product-page/tallow/Frame\ 371\ \(3\).webp);
+    background-size: cover;
+    border-radius: 8px;
+    
+}
+
+.product-page-image-wrap .selector img {
+    border-radius: 4px;
+    height: 76px;
+    width: 76px;
+    object-fit: cover;
+}
+
+.single-product-wrap h2{
+    font-size: var(--product-page-h2);
+    font-variation-settings: 'wght' 840;
+    margin-top: var(--g28);
+    margin-bottom: var(--g6);
+}
+
+.single-product-wrap .single-product-subheading {
+    font-size: var(--product-page-p);
+    color: #4E4D4B;
+    font-variation-settings: 'wght' 460;
+    margin-bottom: var(--g28);
+}
+
+.single-product-page-accordation {
+    padding: var(--g12);
+    display: grid;
+    grid-template-columns: auto min-content;
+    background-color: white;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 1%), 0px 1px 7px 0px rgba(0, 0, 0, 7%);
+    border-radius: var(--br6);
+}
+
+.single-product-page-accordation svg {
+    height: 9px;
+    fill: #514D4D;
+    align-self: center;
+    justify-self: end;
+}
+
+.single-product-page-accordation h3 {
+    font-size: var(--product-page-accordation-heading);
+    line-height: 1;
+    font-variation-settings: 'wght' 750;
+    color: #514D4D;
+    text-align: left;
+}
