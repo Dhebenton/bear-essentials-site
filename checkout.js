@@ -5,7 +5,6 @@ let quantity = 1;
 const qtyValue = document.getElementById("qty-value");
 const increaseBtn = document.getElementById("qty-increase");
 const decreaseBtn = document.getElementById("qty-decrease");
-const checkoutBtn = document.getElementById("checkout-button");
 
 increaseBtn.addEventListener("click", () => {
   quantity += 1;
@@ -19,9 +18,8 @@ decreaseBtn.addEventListener("click", () => {
   }
 });
 
-checkoutBtn.addEventListener("click", async () => {
-    const res = await fetch("http://localhost:4242/api/create-checkout-session", {
-
+async function startCheckout() {
+  const res = await fetch("http://localhost:4242/api/create-checkout-session", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -39,4 +37,9 @@ checkoutBtn.addEventListener("click", async () => {
   const data = await res.json();
   const { error } = await stripe.redirectToCheckout({ sessionId: data.id });
   if (error) throw error;
+}
+
+/* bind checkout to ALL buttons */
+document.querySelectorAll(".checkout-btn").forEach(btn => {
+  btn.addEventListener("click", startCheckout);
 });
