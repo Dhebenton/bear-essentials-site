@@ -38,7 +38,7 @@ function initCarousels() {
       contain: true,
       draggable: true,
       prevNextButtons: false,
-      pageDots: false
+      pageDots: true
     });
   }
 }

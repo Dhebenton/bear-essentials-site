@@ -1,5 +1,4 @@
 :root {
-    --navigation-banner: 13px;
 
     --container-product: 140px clamp(
         6.5%,
@@ -12,20 +11,60 @@
     padding: var(--container-product) !important;
 }
 
+
 /* ===========================================
-    NAVIGATION BANNER
+    INGREDIENTS
 =========================================== */
 
-.navigation-banner {
-    background-color: #243F2A;
-    padding: var(--g12);
+:root {
+    --ingredients-heading: 22px;
+    --ingredeints-paragraph: 13px
 }
 
-.navigation-banner p {
-    font-size: var(--navigation-banner);
-    font-family: 'Gantari';
-    color: #FCFCFC;
+
+
+.ingredients-card-wrap {
+    position: relative;
+    width: 650px;
+    margin-right: var(--g80);
+    height: 270px;
+}
+
+.ingredients-card {
+    margin: -20px;
+    padding: 20px;
+    background-image: url(./assets/blob/ingredeints-background.png);
+    background-position: center;
+    width: calc(100% + 20px + 20px);
+    height: calc(100% + 20px + 20px);
+    background-size: 100% 100%;
+    display: grid;
+    grid-template-columns: 50% 1fr;
+}
+
+.ingredients-card img {
+    height: 90% ;
+    align-self: center;
+    justify-self: center;
+    width: 90%;
+    object-fit: contain;
+}
+
+.ingredients-card.zinc img {
+    width: 80%;
+    height: 80%;
+}
+
+.ingredients-card h3 {
+    font-size: var(--ingredients-heading);
     font-variation-settings: 'wght' 800;
+    padding-left: var(--g12);
+}
+
+
+.ingredients-card p {
+    font-size: var(--ingredeints-paragraph);
+    padding-left: var(--g12);
 }
 
 /* ===========================================
@@ -33,13 +72,6 @@
 =========================================== */
 
 
-:root {
-    --product-page-review: 12px;
-    --product-page-h2: 20px;
-    --product-page-p: 14px;
-
-    --product-page-accordation-heading: 13px;
-}
 
 .product-page-review-container p{
     font-size: var(--product-page-review);
@@ -55,7 +87,7 @@
 }
 
 .product-page-image-wrap .selected-image{
-    width: 520px;
+    width: 540px;
     height: 490px;
     background-image: url(./assets/product-page/tallow/Frame\ 371\ \(3\).webp);
     background-size: cover;
@@ -93,6 +125,21 @@
     border-radius: var(--br6);
 }
 
+.single-product-page-accordation .p-wrap {
+    max-height: 0px;
+    overflow: hidden;
+    transition: inherit;
+    transition-duration: .24s;
+}
+
+.single-product-page-accordation p {
+    font-size: 12px;
+    text-align: left;
+    color: #81807E;
+    font-variation-settings: 'wght' 430;
+    padding-top: var(--g8);
+}
+
 .single-product-page-accordation svg {
     height: 9px;
     fill: #514D4D;
@@ -107,3 +154,548 @@
     color: #514D4D;
     text-align: left;
 }
+
+.single-product-price {
+    font-size: var(--single-product-price);
+    color: #322F2F;
+    font-variation-settings: 'wght' 800;
+    margin-top: var(--g28);
+    margin-bottom: var(--g16);
+    font-family: 'Gantari';
+}
+
+:root {
+    --product-page-review: 12px;
+    --product-page-h2: 20px;
+    --product-page-p: 14px;
+
+    --product-page-accordation-heading: 13px;
+
+    --single-product-price: 15px;
+
+    --quantity-label: 12px;
+}
+
+.quantity-label {
+    font-size: var(--quantity-label);
+    color: #635F5F;
+    font-variation-settings: 'wght' 550;
+}
+
+.quantity-meter-single {
+    width: 100px;
+    height: 32px;
+    border-radius: var(--br6);
+    background-color: white;
+    border: 1px solid hsl(0, 0%, 0%, .08);
+}
+
+.quantity-meter-single button {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    color: #808080;
+    font-variation-settings: 'wght' 500;
+}
+
+.quantity-meter-single button:hover {
+    color: black;
+}
+
+.quantity-meter-single p {
+    font-size: 14px;
+    transform: translateY(1px);
+    font-variation-settings: 'wght' 450;
+    color: #181111;
+    font-family: 'Gantari';
+    line-height: 1;
+    text-align: center;
+}
+
+.single-product-wrap .button-main{
+    font-size: 15px !important;
+    margin-top: var(--g20);
+}
+
+/* ===========================================
+    IMAGE SECTION
+=========================================== */
+
+.product-image-section {
+    height: calc(820px);
+    margin: 100px 0;
+    background-size: 110%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.product-image-section *{
+    position: relative;
+}
+
+.produc-image {
+    background-image: url(./products/assets/product-page.webp);
+    position: absolute;
+    height: 740px;
+    aspect-ratio: 1920 /  740 ;
+    left: 50%;
+    background-position: center;
+    background-size: cover;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+
+.background-size-track {
+    background-color: #CDC3A7;
+    position: absolute;
+    left: -10px;
+    top: 120px;
+    padding: var(--g12);
+    transform: rotate(2deg);
+    font-size: var(--slider-size);
+    font-family: 'Gantari';
+    color: #243F2A;
+    line-height: 1;
+    font-variation-settings: 'wght' 900;
+}
+
+.background-size-track.two {
+    top: auto;
+    bottom: -20px;
+}
+
+.background-size-track span {
+    line-height: 1 !important;
+    white-space: nowrap;
+}
+
+.background-size-track.one .spin {
+    animation: lefttrack 330s cubic-bezier(0.33, 1, 0.68, 1) infinite ;
+}
+
+.background-size-track.two .spin {
+    animation: rightrack 220s cubic-bezier(0.33, 1, 0.68, 1) infinite ;
+}
+
+.background-size-track .dots {
+    font-variation-settings: 'wght' 900;
+    font-size: 16px !important;
+    translate: 0 -1px;
+}
+
+@keyframes lefttrack {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(50%);
+    }
+}
+
+@keyframes rightrack {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.product-image-section svg {
+    height: 28px;
+    opacity: .8;
+}
+
+:root {
+    --slider-size: 13px;
+
+    --product-image-h2-top: 39px;
+    --product-image-h2-bottom: 48px;
+    --product-image-p: 14px;
+}
+
+
+.product-image-section h2 {
+    font-size: var(--product-image-h2-top);
+    color: white;
+    font-variation-settings: 'wght' 750;
+    text-align: center;
+    margin-top: var(--g16);
+}
+
+.product-image-section h2 span {
+    font-size: var(--product-image-h2-bottom);
+    font-variation-settings: 'wght' 800;
+}
+
+.product-image-section p {
+    font-size: var(--product-image-p);
+    font-variation-settings: 'wght' 380;
+    color: #D9D9D9;
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: var(--g20);
+}
+
+.product-image-section button {
+    font-size: 15px;
+}
+
+
+
+/* ======================================================================================
+    BREAKPOINT ADJUSTMENT ONE
+====================================================================================== */
+
+@media (max-width: 1340px) {
+    :root {
+        --slider-size: 11px;
+
+        --product-image-h2-top: 34px;
+        --product-image-h2-bottom: 43px;
+        --product-image-p: 13px;
+
+        --ingredients-heading: 20px;
+        --ingredeints-paragraph: 12px;
+
+
+        --product-page-review: 12px;
+        --product-page-h2: 18px;
+        --product-page-p: 13px;
+
+        --product-page-accordation-heading: 13px;
+
+        --single-product-price: 15px;
+
+        --quantity-label: 12px;
+
+
+         --container-product: 130px 6.5%;
+    }
+
+    .product-image-section {
+        height: 700px;
+    }
+
+    
+    .produc-image {
+        position: absolute;
+        height: 600px;
+        left: 50%;
+        background-position: center;
+        background-size: cover;
+        top: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+
+    .product-image-section svg {
+        height: 26px;
+    }
+
+    .background-size-track .dots {
+        font-size: 15px !important;
+    }
+
+    /* ===========================================
+        SINGLE PRODUCT
+    =========================================== */
+
+    .product-page-review-container svg {
+        height: 12px;
+    }
+
+    .product-page-image-wrap .selector img {
+        border-radius: 4px;
+        height: 72px;
+        width: 72px;
+        object-fit: cover;
+    }
+    
+    .product-page-image-wrap .selected-image{
+        aspect-ratio: 1.1 / 1;
+        width: 35vw !important;
+        height: auto;
+        
+    }
+
+        
+    /* ===========================================
+        INGREDIENTS SECTION
+    =========================================== */
+
+
+    .ingredients-card-wrap {
+        position: relative;
+        width: 550px;
+        margin-right: var(--g80);
+        height: 210px;
+    }
+
+    .ingredients-card {
+        margin: -18px;
+        padding: 18px;
+        width: calc(100% + 18px + 18px);
+        height: calc(100% + 18px + 18px);
+    }
+}
+
+
+/* ======================================================================================
+    BREAKPOINT ADJUSTMENT TWO
+====================================================================================== */
+
+@media (max-width: 1027px) {
+
+    :root {
+        --slider-size: 11px;
+
+        --product-image-h2-top: 34px;
+        --product-image-h2-bottom: 43px;
+        --product-image-p: 13px;
+
+        --product-page-review: 13px;
+        --product-page-h2: 20px;
+        --product-page-p: 14px;
+
+        --product-page-accordation-heading: 14px;
+
+        --single-product-price: 15px;
+
+        --quantity-label: 13px;
+
+
+         --container-product: 130px 6.5%;
+    }
+
+     /* ===========================================
+        SINGLE PRODUCT SECTION
+    =========================================== */
+
+    .single-prod-wrap {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .product-page-image-wrap  {
+        display: grid;
+    }
+
+    .product-page-image-wrap > :first-child {
+        flex-direction: row !important;
+        grid-row: 2 / 3;
+    }
+
+    .single-prod-wrap .selected-image {
+        width: 100% !important;
+    }
+
+    .product-page-review-container svg {
+        height: 14px;
+    }
+
+    .quantity-meter-single {
+        width: 120px;
+        height: 36px;
+    }
+
+    .quantity-meter-single button {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    .quantity-meter-single button:hover {
+        color: black;
+    }
+
+    .quantity-meter-single p {
+        font-size: 15px;
+    }
+
+    .single-product-wrap .button-main{
+        font-size: 16px !important;
+        margin-top: var(--g20);
+    }
+
+    /* ===========================================
+        SINGLE PRODUCT SECTION
+    =========================================== */
+
+    .product-image-section {
+        width: 100%;
+        aspect-ratio: 1920 / 2398 ;
+        height: auto;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .product-image-section button {
+        margin-bottom: 8%;
+    }
+
+    
+    .produc-image {
+        background-image: url(./products/assets/product-page-two.webp);
+        position: absolute;
+        aspect-ratio: 1920 / 1798 ;
+        height: calc(100% - 120px);
+        left: 50%;
+        width: auto !important;
+        background-position: center;
+        background-size: cover;
+        top: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+
+    
+
+}
+
+/* ======================================================================================
+    BREAKPOINT ADJUSTMENT TWO
+====================================================================================== */
+
+@media (max-width: 687px) {
+
+    :root {
+        --slider-size: 10px;
+
+        --product-image-h2-top: 30px;
+        --product-image-h2-bottom: 38px;
+        --product-image-p: 11px;
+
+
+        --product-image-h2-top: 34px;
+        --product-image-h2-bottom: 43px;
+        --product-image-p: 13px;
+
+        --product-page-review: 13px;
+        --product-page-h2: 20px;
+        --product-page-p: 13px;
+
+        --product-page-accordation-heading: 14px;
+
+        --single-product-price: 14px;
+
+        --quantity-label: 13px;
+        --ingredients-heading: 16px;
+        --ingredeints-paragraph: 12px;
+    }
+
+    .product-image-section {
+        width: 100%;
+        aspect-ratio: 1920 / 3298 ;
+        height: auto;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .product-image-section button {
+        margin-bottom: 8%;
+    }
+
+    
+    .produc-image {
+        background-image: url(./products/assets/product-page-three.webp);
+        position: absolute;
+        aspect-ratio: 1920 / 2355 ;
+        height: calc(100% - 120px);
+        left: 50%;
+        width: auto !important;
+        background-position: center;
+        background-size: cover;
+        top: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+
+    
+.product-image-section button {
+    font-size: 13px;
+    margin-bottom: 0%;
+}
+
+.background-size-track.one .spin {
+    animation: lefttrack 550s cubic-bezier(0.33, 1, 0.68, 1) infinite ;
+}
+
+.background-size-track.two .spin {
+    animation: rightrack 300s cubic-bezier(0.33, 1, 0.68, 1) infinite ;
+}
+
+ /* ===========================================
+        INGREDIENTS SECTION
+    =========================================== */
+
+
+    .ingredients-card-wrap {
+        position: relative;
+        width: 320px;
+        margin-right: var(--g80);
+        height: auto;
+    }
+
+    .ingredients-card {
+        margin: -18px;
+        padding: 32px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 150px 1fr;
+        width: calc(100% + 18px + 18px);
+        height: calc(100% + 18px + 18px);
+    }
+
+    .ingredients-card p {
+        letter-spacing: -0.01em;
+        font-variation-settings: 'wght' 420;
+    }
+
+    .ingredients-card img {
+        grid-row: 1 / 2;
+    }
+
+    .quantity-label {
+    font-size: var(--quantity-label);
+    color: #635F5F;
+    font-variation-settings: 'wght' 550;
+}
+
+.quantity-meter-single {
+    width: 100px;
+    height: 32px;
+    border-radius: var(--br6);
+    background-color: white;
+    border: 1px solid hsl(0, 0%, 0%, .08);
+}
+
+.quantity-meter-single button {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    color: #808080;
+    font-variation-settings: 'wght' 500;
+}
+
+.quantity-meter-single button:hover {
+    color: black;
+}
+
+.quantity-meter-single p {
+    font-size: 14px;
+    transform: translateY(1px);
+    font-variation-settings: 'wght' 450;
+    color: #181111;
+    font-family: 'Gantari';
+    line-height: 1;
+    text-align: center;
+}
+
+.single-product-wrap .button-main{
+    font-size: 15px !important;
+    margin-top: var(--g20);
+}
+
+
+}
+

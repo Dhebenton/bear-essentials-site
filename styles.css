@@ -122,6 +122,10 @@
     gap: var(--g40);
 }
 
+.g32 {
+    gap: var(--g32);
+}
+
 .g20 {
     gap: var(--g20);
 }
@@ -148,6 +152,22 @@
 
 .g6 {
     gap: var(--g6);
+}
+
+.cen {
+    text-align: center;
+}
+
+nav {
+    position: absolute;
+    top: 38px;
+    z-index: 1000;
+    padding-top: var(--g16) !important;
+    padding-bottom: var(--g16) !important; 
+}
+
+nav svg {
+    height: 12px;
 }
 
 /* ===========================================
@@ -637,7 +657,8 @@ main p {
 
 .blog-card {
     position: relative;
-    width: 400px;
+    width: 370px;
+    margin-right: var(--g28);
     padding: var(--g22);
 }
 
@@ -647,10 +668,11 @@ main p {
 
 .blog-card-page {
     position: absolute;
-    left: -12px;
+    left: -2.5%;
+    rotate: 1deg;
     top: 0px;
-    right: -8px;
-    bottom: -6px;
+    right: -1%;
+    bottom: -2%;
     background-position: center;
     background-size: 100% 100%;
     background-image: url(./assets/blog/blog-page/blog-page-one.webp);
@@ -680,6 +702,15 @@ main p {
     color: #756F67;
     font-size: var(--blog-subheading);
     font-variation-settings: 'wght' 450;
+}
+
+.blog-card-page.two {
+    background-image: url(./assets/blog/blog-page/blog-page-two.webp);
+    rotate: 0deg !important;
+    left: -1%;
+    top: 1%;
+    right: -1%;
+    bottom: -0;
 }
 
 /* ===========================================
@@ -893,12 +924,18 @@ footer h3 {
 
         --footer-copyright: 12px;
 
+        /* BLOG */
+
+         --blog-heading: 14px;
+        --blog-subheading: 12px;
+
 
         /* GAP */
 
         --g100: 90px;
         --g80: 72px;
         --g60: 54px;
+        --g52: 46px;
         --g48: 43px;
         --g40: 36px;
         --g32: 29px;
@@ -921,6 +958,14 @@ footer h3 {
     main {
         height: 600px;
         background-position: 57%;
+    }
+
+    /* ===========================================
+        BLOG
+    =========================================== */
+
+    .blog-card {
+        width: 360px;
     }
 
     /* ===========================================
@@ -1088,7 +1133,36 @@ footer h3 {
     BREAKPOINT ADJUSTMENT TWO
 ====================================================================================== */
 
+nav {
+    fill: white;
+}
+
+nav .logo {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+nav .logo svg {
+    opacity: .9;
+    transition: inherit;
+    margin-left: 0;
+    width: auto;
+    padding-left: 0;
+}
+
+nav .logo:hover svg {
+    opacity: 1;
+}
+
+nav.dark svg{
+    fill: black !important;
+}
+
 @media (max-width: 1027px) {
+
+    nav svg {
+        height: 11px;
+    }
 
     :root {
         --break-cta-heading: 32px;
@@ -1125,6 +1199,10 @@ footer h3 {
 
     .button-main.form-email {
         height: 28px;
+    }
+
+    .blog-card {
+        width: 320px;
     }
 
     /* ===========================================
@@ -1281,6 +1359,12 @@ footer h3 {
 
         --footer-copyright: 12px;
 
+        /* BLOG */
+
+         --blog-heading: 13px;
+        --blog-subheading: 12px;
+
+
 
         /* GAP */
 
@@ -1313,8 +1397,8 @@ footer h3 {
     main {
         text-align: center;
         background-image: url(./assets/hero/hero-three.webp);
-        aspect-ratio: 1500 / 2122;
-        padding-top: 16% !important;
+        aspect-ratio: 1500 / 2222;
+        padding-top: 24% !important;
     }
 
     main a {
@@ -1358,6 +1442,15 @@ footer h3 {
         font-size: 13px !important;
         margin-bottom: 25%;
     }
+
+     /* ===========================================
+        Blog
+    =========================================== */
+
+    .blog-card {
+        width: 280px;
+    }
+    
 
     /* ===========================================
         FAQ
@@ -1415,151 +1508,18 @@ footer h3 {
     .footer-link-group ul {
         gap: var(--g6) !important;
     }
+
+    nav svg {
+        height: 9px;
+    }
 }  
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-.prelaunch {
-    background-image: url(./assets/prela.webp);
-    background-size: cover;
-    background-position: center;
-}
-
-.prelaunch h2 {
-    text-align: center;
-    font-size: 30px;
-    margin-top: 15%;
-    color: #FCFCFC;
-}
-
-.prelaunch p {
-    margin-top: var(--g6);
-    font-variation-settings: 'wght' 430;
-    text-align: center;
-    color: #BEBFB9;
-    margin-bottom: var(--g20);
-}
-
-.prelaunch .newsletter-input {
-    width: 320px;
-}
-
-.prelaunch form {
-    margin-bottom: auto;
-}
-
-#countdown  {
-    font-size: 28px;
-    font-variation-settings: 'wght' 800;
-    color: white;
-    font-family: 'Gantari';
-    position: absolute;
-    bottom: 36px;
-}
-
-.starting-in {
-    font-size: 12px;
-    font-variation-settings: 'wght' 480;
-    color: #BEBFB9;
-    margin-bottom: -12px;
-}
-
-
-@media (max-width: 1140px) {
-    .prelaunch {
-    background-image: url(./assets/prela.webp);
-    background-size: cover;
-    background-position: center;
-}
-
-.prelaunch h2 {
-    text-align: center;
-    font-size: 24px;
-    margin-top: 20%;
-    color: #FCFCFC;
-}
-
-.prelaunch p {
-    margin-top: var(--g6);
-    font-variation-settings: 'wght' 430;
-    text-align: center;
-    color: #BEBFB9;
-    font-size: 12px;
-    margin-bottom: var(--g20);
-}
-
-.prelaunch .newsletter-input {
-    width: 320px;
-}
-
-.prelaunch form {
-    margin-bottom: auto;
-}
-
-#countdown  {
-    font-size: 30px;
-    font-variation-settings: 'wght' 800;
-    color: white;
-    font-family: 'Gantari';
-    position: absolute;
-    bottom: 36px;
-}
-
-.starting-in {
-    font-size: 12px;
-    font-variation-settings: 'wght' 480;
-    color: #BEBFB9;
-    margin-bottom: -12px;
-}
-
-.prelaunch form {
-    flex-direction: column;
-    width: 320px;
-}
-
-.prelaunch input,
-.prelaunch button {
+nav {
     width: 100%;
-    height: 27px !important;
 }
 
-.prelaunch input {
-    width: 100% !important;
-}
-
-}
-
-
-@media (max-width: 500px) {
-.prelaunch .newsletter-input {
-    width: 80%;
-}
-
-.prelaunch h2 {
-    text-align: center;
-    font-size: 20px;
-    margin-top: 20%;
-    color: #FCFCFC;
-}
-
-.prelaunch p {
-    margin-top: var(--g6);
-    font-variation-settings: 'wght' 430;
-    text-align: center;
-    color: #BEBFB9;
-    font-size: 11px;
-    margin-bottom: var(--g20);
-}
+section {
+    max-width: 100vw;
 }
