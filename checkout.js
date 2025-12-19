@@ -39,7 +39,11 @@ async function startCheckout() {
   if (error) throw error;
 }
 
-/* bind checkout to ALL buttons */
-document.querySelectorAll(".checkout-btn").forEach(btn => {
-  btn.addEventListener("click", startCheckout);
+/* universal click handler */
+document.addEventListener("click", e => {
+  const btn = e.target.closest(".checkout-btn");
+  if (!btn) return;
+
+  e.preventDefault();
+  startCheckout();
 });
