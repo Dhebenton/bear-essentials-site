@@ -2,8 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>web</title>
+
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <script async src="https://cdn.seline.com/seline.js" data-token="ee51762c9399db4"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,8 +19,6 @@
 
     <link rel="stylesheet" href="/flex.css">
     <link rel="stylesheet" href="/styles.css">
-
-    <title>web</title>
   </head>
 
   <body class="prelaunch f-col a-c j-c">
@@ -47,12 +50,16 @@
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 
     <script>
-      const supabaseUrl = "https://ivpgbbntbanbwahhoilu.supabase.co";
-      const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml2cGdiYm50YmFuYndhaGhvaWx1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM2NDA3NzIsImV4cCI6MjA3OTIxNjc3Mn0.x0gKjWw-T2WTrHVfcMqHkpx4mf4w_z2bzxPvvMW-UGk";
-      const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+      const SUPABASE_URL = "https://ivpgbbntbanbwahhoilu.supabase.co";
+      const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml2cGdiYm50YmFuYndhaGhvaWx1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM2NDA3NzIsImV4cCI6MjA3OTIxNjc3Mn0.x0gKjWw-T2WTrHVfcMqHkpx4mf4w_z2bzxPvvMW-UGk";
+
+      const supabaseClient = supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+      );
 
       const form = document.getElementById("newsletter-form");
       const emailInput = document.getElementById("email");
@@ -63,11 +70,13 @@
         const email = emailInput.value.trim();
         if (!email) return;
 
-        await supabaseClient
+        const { error } = await supabaseClient
           .from("emails")
           .insert([{ email }]);
 
-        form.reset();
+        if (!error) {
+          form.reset();
+        }
       });
 
       const launchTime = new Date("2025-12-19T20:00:00Z").getTime();
