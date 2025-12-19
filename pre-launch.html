@@ -4,45 +4,92 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="./flex.css">
-    <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="/flex.css">
+    <link rel="stylesheet" href="/styles.css">
+
     <title>web</title>
   </head>
+
   <body class="prelaunch f-col a-c j-c">
     <h2>LAUNCHING IN A FEW HOURS</h2>
-    <p>Join the email list and take 5% off at launch. Stories, tips, <br> & updates. No gimmicks. Just a clean head start.</p>
-    <form action="" class="f-row g6 newsletter-footer-form">
-        <input type="text" placeholder="Enter your email" class="newsletter-input">
-        <button class="button-main form-email">Sign Up</button>
+
+    <p>
+      Join the email list and take 5% off at launch. Stories, tips,
+      <br>
+      & updates. No gimmicks. Just a clean head start.
+    </p>
+
+    <form id="newsletter-form" class="f-row g6 newsletter-footer-form">
+      <input
+        type="email"
+        id="email"
+        required
+        placeholder="Enter your email"
+        class="newsletter-input"
+      >
+      <button type="submit" class="button-main form-email">Sign Up</button>
     </form>
+
     <div id="countdown" class="f-col">
-        <p class="starting-in">Launching In</p>
-        <div><span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span></div>
+      <p class="starting-in">Launching In</p>
+      <div>
+        <span id="hours">00</span>:
+        <span id="minutes">00</span>:
+        <span id="seconds">00</span>
+      </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <script>
-  const launchTime = new Date("2025-12-19T20:00:00Z").getTime();
+      const supabaseUrl = "https://ivpgbbntbanbwahhoilu.supabase.co";
+      const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml2cGdiYm50YmFuYndhaGhvaWx1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM2NDA3NzIsImV4cCI6MjA3OTIxNjc3Mn0.x0gKjWw-T2WTrHVfcMqHkpx4mf4w_z2bzxPvvMW-UGk";
+      const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
-  const timer = setInterval(() => {
-    const now = new Date().getTime();
-    const diff = launchTime - now;
+      const form = document.getElementById("newsletter-form");
+      const emailInput = document.getElementById("email");
 
-    if (diff <= 0) {
-      clearInterval(timer);
-      document.getElementById("countdown").textContent = "LIVE";
-      return;
-    }
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        const email = emailInput.value.trim();
+        if (!email) return;
 
-    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
-    document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
-    document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
-  }, 1000);
-</script>
+        await supabaseClient
+          .from("emails")
+          .insert([{ email }]);
+
+        form.reset();
+      });
+
+      const launchTime = new Date("2025-12-19T20:00:00Z").getTime();
+
+      const timer = setInterval(() => {
+        const now = Date.now();
+        const diff = launchTime - now;
+
+        if (diff <= 0) {
+          clearInterval(timer);
+          document.getElementById("countdown").textContent = "LIVE";
+          return;
+        }
+
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+        document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+        document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+      }, 1000);
+    </script>
   </body>
-<html
+</html>

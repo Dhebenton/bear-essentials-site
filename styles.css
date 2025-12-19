@@ -1540,3 +1540,26 @@ footer h3 {
 }
 
 }
+
+
+@media (max-width: 500px) {
+.prelaunch .newsletter-input {
+    width: 80%;
+}
+
+.prelaunch h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20%;
+    color: #FCFCFC;
+}
+
+.prelaunch p {
+    margin-top: var(--g6);
+    font-variation-settings: 'wght' 430;
+    text-align: center;
+    color: #BEBFB9;
+    font-size: 11px;
+    margin-bottom: var(--g20);
+}
+}
