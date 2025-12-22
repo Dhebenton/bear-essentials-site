@@ -54,7 +54,7 @@ export default function CartBottomBlock() {
 
   async function handleCheckout() {
     const res = await fetch(
-      "http://localhost:4242/api/create-checkout-session",
+      "https://backend.bearessentials-shop.com/api/create-checkout-session",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
