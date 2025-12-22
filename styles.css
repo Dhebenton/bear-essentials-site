@@ -86,6 +86,7 @@
     --br12: 12px;
     --br8: 8px;
     --br6: 6px;
+    --br-6: 6px;
 }
 
 /* ===========================================
@@ -124,6 +125,14 @@
 
 .g32 {
     gap: var(--g32);
+}
+
+.g28 {
+    gap: var(--g28);
+}
+
+.g24 {
+    gap: var(--g24);
 }
 
 .g20 {
@@ -288,10 +297,11 @@ ul {
     HEADING
 =========================================== */
 
-h1, h2 , h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .gant, .button-main {
+    text-transform: uppercase;
     font-family: 'Gantari';
     line-height: 1.3;
-    text-transform: uppercase;
+    letter-spacing: -0.005em;
 }
 
 h2 {
@@ -1522,4 +1532,104 @@ nav {
 
 section {
     max-width: 100vw;
+}
+
+nav {
+    top: 0;
+    left: 0;
+    position: absolute !important;
+    width: 100%;
+    padding-top: var(--g16) !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-bottom: var(--g16) !important;
+    align-items: center;
+}
+
+nav.top {
+    top: 40px;
+}
+
+nav .nav-logo {
+    opacity: .85;
+    justify-self: start;
+}
+
+nav .nav-logo:hover {
+    opacity: 1;
+}
+
+nav .nav-logo svg{
+    fill: white;
+    height: 12px;
+}
+
+.nav-link {
+    font-size: var(--nav-links);
+    color: #CBCBC8;
+    white-space: nowrap;
+}
+
+.nav-links-wrap {
+    transform: translateY(-1px)  !important;
+}
+
+.nav-link.active,
+.nav-link:hover {
+    color: white;
+}
+
+.nav-buttons-wrap {
+    justify-self: end;
+}
+
+.nav-button {
+    height: 27px;
+    aspect-ratio: 1;
+    border-radius: var(--br-6);
+}
+
+.nav-button svg {
+    transition: inherit;
+    fill: white;
+    opacity: .75;
+}
+
+.nav-button:hover {
+    background-color: hsl(0, 0%, 100%, .1);
+}
+
+.nav-button:hover svg {
+    opacity: 1;
+}
+
+.nav-button.cart svg {
+    height: 15px;
+}
+
+.nav-button.user svg {
+    height: 15px;
+}
+
+nav.dark {
+    .nav-logo svg{
+        fill: #110E0E;
+    }
+
+    .nav-link {
+        color: #686464;
+        font-variation-settings: 'wght' 500;
+    }
+
+    .nav-link:hover {
+        color: #110E0E;
+    }
+
+    .nav-button svg {
+        fill: #110E0E;
+    }
+
+    .nav-button:hover {
+        background-color: hsl(0, 0%, 0%, .1);
+    }
 }

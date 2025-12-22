@@ -1,0 +1,110 @@
+/* ===========================================
+    NOT FINISHED PAGE
+=========================================== */
+
+:root {
+    --not-ready-heading: 28px;
+    --not-ready-subheading: 15px;
+
+    --not-ready-button: 14px
+
+}
+
+.not-finished-body {
+    background-image: url(./assets/not-finished/not-finished-one.webp);
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 10vh;
+    text-align: center;
+}
+
+.not-finished-body * {
+    position: relative;
+}
+
+.not-finished-body::before {
+    background: radial-gradient(62.21% 67.49% at 50% 32.51%, color(display-p3 0.000 0.000 0.000 / 0.01) 0%, color(display-p3 0.000 0.000 0.000 / 0.6) 80.49%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    content: "";
+    display: block;
+}
+
+.not-finished-body h1 {
+    font-size: var(--not-ready-heading);
+    font-variation-settings: 'wght' 900;
+    color: #FCFBFA;
+    margin-bottom: var(--g6);
+}
+
+.not-finished-body p {
+    font-size: var(--not-ready-subheading);
+    color: #E6E6E6;
+    font-variation-settings: 'wght'410;
+    line-height: 1.6;
+    margin-bottom: var(--g18);
+}
+
+.not-finished-body .button-main {
+    font-size: var(--not-ready-button);
+}
+
+/* ======================================================================================
+    NOT FINISHED PAGE
+====================================================================================== */
+
+@media (max-width: 1340px) {
+    :root {
+        --not-ready-heading: 26px;
+        --not-ready-subheading: 14px;
+
+        --not-ready-button: 13px
+    }
+
+    .not-finished-body {
+        padding-bottom: 8vh;
+        text-align: center;
+    }
+}
+
+
+
+/* ======================================================================================
+    NOT FINISHED PAGE
+====================================================================================== */
+
+@media (max-width: 1027px) {
+    :root {
+        --not-ready-heading: 32px;
+        --not-ready-subheading: 16px;
+
+        --not-ready-button: 14px
+    }
+}
+
+
+
+/* ======================================================================================
+    NOT FINISHED PAGE
+====================================================================================== */
+
+@media (max-width: 668px) {
+    :root {
+        --not-ready-heading: 22px;
+        --not-ready-subheading: 12px;
+
+        --not-ready-button: 12px
+    }
+
+    .not-finished-body {
+        padding-bottom: 7vh;
+        background-image: url(./assets/not-finished/not-finished-two.webp);
+    }
+
+    .not-finished-body::before {
+        background: radial-gradient(62.21% 67.49% at 50% 32.51%, color(display-p3 0.000 0.000 0.000 / 0.25) 0%, color(display-p3 0.000 0.000 0.000 / 0.85) 80.49%);
+    }
+}
